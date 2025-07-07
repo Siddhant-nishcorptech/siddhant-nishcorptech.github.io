@@ -1,0 +1,101 @@
+---
+layout: default
+title: About
+permalink: /about/
+spiral_galaxy: true
+layout_type: snap
+---
+
+<style>
+    .snap-container {
+        scroll-snap-type: y mandatory;
+        height: 100vh;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+    }
+    .snap-section {
+        scroll-snap-align: start;
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+        box-sizing: border-box;
+    }
+    .snap-section-half {
+    scroll-snap-align: start;
+    min-height: 35vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+</style>
+
+<body>
+    
+<!-- Section 1 -->
+<section id="section1" class="snap-section relative text-white overflow-hidden">
+  <!-- Spiral Galaxy Canvas Background -->
+  <canvas id="spiral-canvas" class="absolute inset-0 w-full h-full -z-10"></canvas>
+  <h1 class="text-6xl font-bold text-white mb-6 relative z-10">About Us</h1>
+  <p class="text-2xl text-gray-200 mb-12 max-w-4xl leading-relaxed relative z-10">
+    We build what you need. Top class industry ready products that transform your vision into reality. 
+    Our team combines cutting-edge technology with innovative design to deliver solutions that exceed expectations.
+  </p>
+</section>
+
+<!-- Section 2 -->
+<section id="section2" class="snap-section" style="background-color: #000000; color: white;">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-white mb-8">Our Story & Vision</h2>
+        <p class="text-lg text-gray-300 leading-relaxed">
+            Founded with a mission to bridge the gap between imagination and implementation, NishCorp has grown from a small startup to a leading technology solutions provider. We believe that every great idea deserves to be brought to life with precision, creativity, and unwavering attention to detail. Our journey began with a simple philosophy: understand what our clients truly need, then exceed those expectations through innovative engineering and thoughtful design.
+            <br><br>
+            Over the years, we've assembled a diverse team of experts who share our passion for excellence. From software architects and UX designers to project managers and quality assurance specialists, each member of our team brings unique skills and perspectives that contribute to our collective success. We don't just build products; we craft experiences that resonate with users and drive business growth.
+            <br><br>
+            Our approach is collaborative and transparent. We work closely with our clients throughout every phase of development, ensuring that their vision remains at the forefront of everything we create. Whether you're a startup looking to disrupt an industry or an established enterprise seeking digital transformation, we have the expertise and dedication to make your project a success. We pride ourselves on delivering not just functional solutions, but products that are scalable, maintainable, and built to last.
+            <br><br>
+            Looking forward, we're excited about the emerging technologies that will shape the future of digital experiences. From artificial intelligence and machine learning to blockchain and IoT, we're constantly exploring new frontiers and incorporating cutting-edge innovations into our work. Our commitment to continuous learning and adaptation ensures that we're always ready to tackle the challenges of tomorrow while delivering exceptional results today.
+        </p>
+    </div>
+</section>
+
+  <section id="features-why" class="snap-section bg-[#242424] text-white">
+    <div class="w-full px-8 md:px-20 lg:px-40">
+      <h2 class="text-4xl font-bold mb-8">Team</h2>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Team Member 1 -->
+        <div class="bg-[#1a1a1a] rounded-2xl p-6 shadow-lg flex flex-col items-center text-center">
+          <img src="/assets/images/team1.jpg" alt="Team Member 1" class="w-32 h-32 object-cover rounded-full mb-4 border-4 border-gray-700">
+          <h3 class="text-2xl font-semibold text-white">Person 1</h3>
+          <p class="text-gray-400">Description</p>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="bg-[#1a1a1a] rounded-2xl p-6 shadow-lg flex flex-col items-center text-center">
+          <img src="/assets/images/team2.jpg" alt="Team Member 2" class="w-32 h-32 object-cover rounded-full mb-4 border-4 border-gray-700">
+          <h3 class="text-2xl font-semibold text-white">Person 2</h3>
+          <p class="text-gray-400">Description</p>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="bg-[#1a1a1a] rounded-2xl p-6 shadow-lg flex flex-col items-center text-center">
+          <img src="/assets/images/team3.jpg" alt="Team Member 3" class="w-32 h-32 object-cover rounded-full mb-4 border-4 border-gray-700">
+          <h3 class="text-2xl font-semibold text-white">Person 3</h3>
+          <p class="text-gray-400">Description</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<script src="/assets/js/spiral-galaxy.js"></script>
+</body>

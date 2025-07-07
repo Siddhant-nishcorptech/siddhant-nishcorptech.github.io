@@ -1,0 +1,15 @@
+/* Regular block footer at bottom */
+#footer {
+  position: relative;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  min-height: 32.5vh;
+}
+#footer.visible-footer {
+  opacity: 1;
+}
+
+.snappy{
+    scroll-snap-align: start;
+}

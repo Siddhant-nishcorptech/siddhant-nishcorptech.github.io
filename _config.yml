@@ -1,0 +1,7 @@
+title: NishCorp
+theme: null
+markdown: kramdown
+include:
+  - _pages
+  - assets/icons
+  - assets

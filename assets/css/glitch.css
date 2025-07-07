@@ -1,0 +1,37 @@
+.glitch {
+  position: relative;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px #f0f2f5;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch::before {
+  animation: glitchTop 2s infinite linear alternate-reverse;
+  color: #0ff;
+}
+
+.glitch::after {
+  animation: glitchBottom 2s infinite linear alternate-reverse;
+  color: #f0f;
+}
+
+@keyframes glitchTop {
+  10% { clip: rect(0, 9999px, 10px, 0); transform: translate(-2px, -2px); }
+  20% { clip: rect(0, 9999px, 8px, 0); transform: translate(2px, 2px); }
+}
+
+@keyframes glitchBottom {
+  10% { clip: rect(0, 9999px, 5px, 0); transform: translate(2px, 2px); }
+  20% { clip: rect(0, 9999px, 6px, 0); transform: translate(-2px, -2px); }
+}
