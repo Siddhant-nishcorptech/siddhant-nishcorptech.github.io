@@ -5,7 +5,7 @@ let ctx;
 
 // --- Configuration ---
 const numStars = 2000; // Number of stars/dots
-const starColor = 'rgba(161, 162, 179, 0.72)';
+const starColor = 'rgba(148, 187, 238, 0.55)';
 const maxStarSize = 2; // Maximum size of a star
 const minStarSize = 0.05; // Minimum size of a star
 const swirlSpeed = 0.009; // Speed of the swirl (radians per frame)

@@ -2,8 +2,33 @@
 layout: default
 permalink: /404.html
 ---
-<div class="text-center p-20">
-  <h1 class="text-6xl font-black text-white">404</h1>
-  <p class="text-xl text-gray-300 mt-4">Oops! Page not found.</p>
-  <a href="/" class="mt-6 inline-block bg-white text-black px-4 py-2 rounded">Go Home</a>
+<div class="flex flex-col items-center justify-center min-h-screen text-white p-8">
+  <h1 class="text-7xl md:text-8xl lg:text-9xl font-extrabold text-white mb-4 animate-pulse">404</h1>
+  <p class="text-2xl md:text-3xl text-white mb-6 text-center max-w-2xl">
+    We're sorry, the page you requested could not be found.
+  </p>
+  <p class="text-lg text-white mb-8 text-center max-w-2xl">
+    You will be redirected to the homepage in <span id="countdown">10</span> seconds.
+  </p>
+  <a href="/" class="px-8 py-3 bg-white text-black font-semibold rounded-lg shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out transform hover:scale-105">
+    Go to Homepage
+  </a>
 </div>
+
+<script>
+  let countdownElement = document.getElementById('countdown');
+  let countdown = 10; // Changed from 5 to 10 seconds
+
+  function updateCountdown() {
+    countdown--;
+    countdownElement.textContent = countdown;
+    if (countdown <= 0) {
+      window.location.href = "/"; // Redirect to homepage
+    } else {
+      setTimeout(updateCountdown, 1000); // Call every 1 second
+    }
+  }
+
+  // Start the countdown when the page loads
+  window.onload = updateCountdown;
+</script>
