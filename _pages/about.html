@@ -13,9 +13,11 @@ layout_type: snap
         overflow-y: auto;
         scroll-behavior: smooth;
     }
+
+    /* Default: full-screen snap sections (for hero) */
     .snap-section {
         scroll-snap-align: start;
-        min-height: 100vh;
+        height: 100vh;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -25,73 +27,127 @@ layout_type: snap
         padding: 2rem;
         box-sizing: border-box;
     }
+
+    /* For text-heavy sections (About Story, Team): allow to grow */
+    .snap-section.grow-section {
+        min-height: 100vh;   /* Fills screen if short */
+        height: auto;        /* Expands naturally if long */
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        scroll-snap-align: start;  /* Can set to 'none' if you don’t want snap */
+    }
+
     .snap-section-half {
-    scroll-snap-align: start;
-    min-height: 35vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 2rem;
-    box-sizing: border-box;
-  }
+        scroll-snap-align: start;
+        min-height: 35vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+        box-sizing: border-box;
+    }
 </style>
 
 <body>
-    
-<!-- Section 1 -->
+
+<!-- Section 1 (Hero) -->
 <section id="section1" class="snap-section relative text-white overflow-hidden">
-  <!-- Spiral Galaxy Canvas Background -->
   <canvas id="spiral-canvas" class="absolute inset-0 w-full h-full -z-10"></canvas>
-  <h1 class="text-6xl font-bold text-white mb-6 relative z-10">About Us</h1>
-  <p class="text-2xl text-gray-200 mb-12 max-w-4xl leading-relaxed relative z-10">
+  <h1 class="font-bold text-white mb-6 relative z-10"
+      style="font-size: clamp(2rem, 6vw, 4rem);">
+    About Us
+  </h1>
+  <p class="text-gray-200 mb-12 max-w-4xl leading-relaxed relative z-10"
+     style="font-size: clamp(1rem, 3vw, 1.5rem);">
     NishCorp Technologies is redefining mobility with robotics designed by those who understand it best. Founded by Siddhant Singh, a wheelchair user and engineer, we’re building India’s first stair-climbing, restroom-ready robotic wheelchair—because independence shouldn’t have limits.
   </p>
 </section>
 
-<!-- Section 2 -->
-<section id="section2" class="snap-section" style="background-color: #000000; color: white;">
-    <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-white mb-8">Our Story & Vision</h2>
-        <p class="text-lg text-gray-300 leading-relaxed">
-            NishCorp Technologies began with a deeply personal mission. Our founder, Siddhant Singh, a mechanical engineer from VJTI and a wheelchair user, grew up alongside his late brother Nishchay, who lived with muscular dystrophy. Watching Nishchay face the constant barriers of stairs, inaccessible restrooms, and dependent mobility sparked a question: what if robotics could make these obstacles disappear?
-            <br><br>
-            In Nishchay’s memory, Siddhant set out to build more than just a wheelchair. He envisioned a robotic mobility solution that wouldn’t need help, transfers, or compromises—a device that could climb stairs, navigate rough terrain, and dock directly to restrooms, all while staying compact and car-friendly. What started as a passion project in a small lab is now on the verge of becoming India’s first stair-climbing, restroom-accessible robotic wheelchair.
-            <br><br>
-            But our vision reaches beyond assistive mobility. At the heart of our wheelchair is a modular robotic base—a platform versatile enough to power delivery bots, defense rovers, and smart industrial carts. By building a system that adapts to multiple industries, we’re creating a robotics ecosystem where accessibility meets automation.
-            <br><br>
-            Our goal is simple but ambitious: to make mobility limitless and to build the world’s most inclusive robotics platform. We believe independence isn’t a privilege—it’s a right. Through a blend of human-first design, advanced robotics (ROS2, Jetson Nano), and a team driven by lived experience, we’re proving that technology can be both empowering and scalable.
-            <br><br>
-            At NishCorp, every prototype, every feature, and every idea is rooted in one belief: everyone deserves the freedom to move, live, and dream without barriers.
-        </p>
-    </div>
+<!-- Section 2 (Story & Vision) -->
+<section id="section2" class="snap-section grow-section bg-black text-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-8">
+    <h2 class="font-bold text-white mb-8 text-center"
+        style="font-size: clamp(1.8rem, 5vw, 3rem);">
+      Our Story & Vision
+    </h2>
+    <p class="text-gray-300 leading-relaxed text-justify"
+       style="font-size: clamp(0.9rem, 2.5vw, 1.2rem); line-height: 1.7;">
+      NishCorp Technologies began with a deeply personal mission. Our founder, Siddhant Singh, a mechanical engineer from VJTI and a wheelchair user, grew up alongside his late brother Nishchay, who lived with muscular dystrophy. Watching Nishchay face the constant barriers of stairs, inaccessible restrooms, and dependent mobility sparked a question: what if robotics could make these obstacles disappear?
+      <br><br>
+      In Nishchay’s memory, Siddhant set out to build more than just a wheelchair. He envisioned a robotic mobility solution that wouldn’t need help, transfers, or compromises—a device that could climb stairs, navigate rough terrain, and dock directly to restrooms, all while staying compact and car-friendly. What started as a passion project in a small lab is now on the verge of becoming India’s first stair-climbing, restroom-accessible robotic wheelchair.
+      <br><br>
+      But our vision reaches beyond assistive mobility. At the heart of our wheelchair is a modular robotic base—a platform versatile enough to power delivery bots, defense rovers, and smart industrial carts. By building a system that adapts to multiple industries, we’re creating a robotics ecosystem where accessibility meets automation.
+      <br><br>
+      Our goal is simple but ambitious: to make mobility limitless and to build the world’s most inclusive robotics platform. We believe independence isn’t a privilege—it’s a right. Through a blend of human-first design, advanced robotics (ROS2, Jetson Nano), and a team driven by lived experience, we’re proving that technology can be both empowering and scalable.
+      <br><br>
+      At NishCorp, every prototype, every feature, and every idea is rooted in one belief: everyone deserves the freedom to move, live, and dream without barriers.
+    </p>
+  </div>
 </section>
 
-<section id="features-why" class="snap-section bg-[#242424] text-white">
-  <div class="w-full px-8 md:px-20 lg:px-40">
-    <h2 class="text-4xl font-bold mb-8">Team</h2>
-    <p class="text-lg text-gray-300 leading-relaxed mb-6">Led by experience. Driven by empathy.</p>
-    <p class="text-lg text-gray-300 leading-relaxed mb-6">We’re a team of 9 young, multidisciplinary innovators—interns and engineers from mechanical, electrical, software, and business backgrounds—working hands-on from lab benches to test ramps.</p>
-    <p class="text-lg text-gray-300 leading-relaxed mb-6">We’re proudly bootstrapped, with incubation support and mentorship from IIT Bombay.</p>
-    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      <div class="bg-[#1a1a1a] rounded-2xl p-6 shadow-lg flex flex-col items-center text-center">
-        <img src="/assets/images/team1.jpg" alt="Team Member 1" class="w-32 h-32 object-cover rounded-full mb-4 border-4 border-gray-700">
-        <h3 class="text-2xl font-semibold text-white">Person 1</h3>
-        <p class="text-gray-400">Description</p>
+<!-- Section 3 (Team) -->
+<section id="features-why" class="snap-section grow-section bg-[#242424] text-white">
+  <div class="w-full px-4 sm:px-12 lg:px-24">
+    <h2 class="font-bold mb-6 text-center"
+        style="font-size: clamp(1.8rem, 5vw, 3rem);">
+      Team
+    </h2>
+    <p class="text-gray-300 leading-relaxed text-center mb-4"
+       style="font-size: clamp(0.9rem, 2.5vw, 1.2rem);">
+      Led by experience. Driven by empathy.
+    </p>
+    <p class="text-gray-300 leading-relaxed text-center mb-4"
+       style="font-size: clamp(0.9rem, 2.5vw, 1.2rem);">
+      We’re a team of 9 young, multidisciplinary innovators—interns and engineers from mechanical, electrical, software, and business backgrounds—working hands-on from lab benches to test ramps.
+    </p>
+    <p class="text-gray-300 leading-relaxed text-center mb-8"
+       style="font-size: clamp(0.9rem, 2.5vw, 1.2rem);">
+      We’re proudly bootstrapped, with incubation support and mentorship from IIT Bombay.
+    </p>
+
+    <div class="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Card 1 -->
+      <div class="bg-[#1a1a1a] rounded-2xl p-4 sm:p-6 shadow-lg flex flex-col items-center text-center">
+        <img src="/assets/images/team1.jpg" alt="Team Member 1" class="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 object-cover rounded-full mb-4 border-4 border-gray-700">
+        <h3 class="text-white font-semibold"
+            style="font-size: clamp(1rem, 3vw, 1.5rem);">
+          Person 1
+        </h3>
+        <p class="text-gray-400"
+           style="font-size: clamp(0.8rem, 2vw, 1rem);">
+          Description
+        </p>
       </div>
 
-      <div class="bg-[#1a1a1a] rounded-2xl p-6 shadow-lg flex flex-col items-center text-center">
-        <img src="/assets/images/team2.jpg" alt="Team Member 2" class="w-32 h-32 object-cover rounded-full mb-4 border-4 border-gray-700">
-        <h3 class="text-2xl font-semibold text-white">Person 2</h3>
-        <p class="text-gray-400">Description</p>
+      <!-- Card 2 -->
+      <div class="bg-[#1a1a1a] rounded-2xl p-4 sm:p-6 shadow-lg flex flex-col items-center text-center">
+        <img src="/assets/images/team2.jpg" alt="Team Member 2" class="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 object-cover rounded-full mb-4 border-4 border-gray-700">
+        <h3 class="text-white font-semibold"
+            style="font-size: clamp(1rem, 3vw, 1.5rem);">
+          Person 2
+        </h3>
+        <p class="text-gray-400"
+           style="font-size: clamp(0.8rem, 2vw, 1rem);">
+          Description
+        </p>
       </div>
 
-      <div class="bg-[#1a1a1a] rounded-2xl p-6 shadow-lg flex flex-col items-center text-center">
-        <img src="/assets/images/team3.jpg" alt="Team Member 3" class="w-32 h-32 object-cover rounded-full mb-4 border-4 border-gray-700">
-        <h3 class="text-2xl font-semibold text-white">Person 3</h3>
-        <p class="text-gray-400">Description</p>
+      <!-- Card 3 -->
+      <div class="bg-[#1a1a1a] rounded-2xl p-4 sm:p-6 shadow-lg flex flex-col items-center text-center">
+        <img src="/assets/images/team3.jpg" alt="Team Member 3" class="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 object-cover rounded-full mb-4 border-4 border-gray-700">
+        <h3 class="text-white font-semibold"
+            style="font-size: clamp(1rem, 3vw, 1.5rem);">
+          Person 3
+        </h3>
+        <p class="text-gray-400"
+           style="font-size: clamp(0.8rem, 2vw, 1rem);">
+          Description
+        </p>
       </div>
     </div>
   </div>

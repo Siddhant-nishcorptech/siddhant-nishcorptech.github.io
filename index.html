@@ -15,36 +15,78 @@
 <body class="bg-gray-900 font-inter">
     {% include header.html %}
     <main class="snap-container">
-        <section id="section1" class="snap-section text-white bg-[url('/assets/images/Grid.png')] bg-cover bg-center">
-            {% include section1.md %}
+
+        <!-- Section 1 -->
+        <section id="section1" class="snap-section text-white bg-[url('/assets/images/Grid.png')] bg-cover bg-center px-4 sm:px-8 md:px-16 py-12 flex items-center justify-center">
+            <div class="max-w-md sm:max-w-lg md:max-w-2xl w-full text-center space-y-6">
+                <h5 class="font-black uppercase tracking-wider leading-snug text-[clamp(1rem,3vw,2.5rem)]">
+                    Welcome to
+                </h5>
+                <img
+                    src="{{ site.baseurl }}/assets/preloader.png"
+                    alt="NishCorp Logo"
+                    class="w-[10rem] sm:w-[16rem] md:w-[32rem] lg:w-[40rem] h-auto mx-auto fade-in"
+                />
+            </div>
         </section>
-        <section id="section1" class="snap-section text-white bg-[url('/assets/images/Honeycomb.png')] bg-cover bg-center">
-            {% include section2.md %}
-        </section>
-        <section id="section3" class="snap-section bg-[url('/assets/images/Grid_3.png')] bg-cover bg-top-right" style="color: #353535;">
-            {% include section3.md %}
-        </section>
-        <footer id="footer" class="bg-black text-gray-400 py-12 px-6 opacity-0 transition-opacity snappy">
-            <div class="container mx-auto text-center">
-                <h3 class="text-2xl font-bold text-white mb-4">Get In Touch</h3>
-                <p class="mb-2">Mumbai Maharashtra, India</p>
-                <p class="mb-2">
-                <a href="mailto:founder.nishcorp.tech@gmail.com" class="hover:text-white">contactmail</a>
-                </p>
-                <p class="mb-6">
-                <a href="tel:+91 7738866072" class="hover:text-white">Contact Number</a>
-                </p>
-                <div class="text-sm">
-                &copy; 2025 NishCorp. All Rights Reserved.
-                </div>
-                <div class="text-sm">
-                    <a href="https://github.com/IamLegend509/">Website created by Suchit</a>
+
+        <!-- Section 2 -->
+        <section id="section2" class="snap-section text-white bg-[url('/assets/images/Honeycomb.png')] bg-cover bg-center px-4 sm:px-8 md:px-16 py-12 flex items-center justify-center">
+            <div class="max-w-md sm:max-w-lg md:max-w-2xl w-full text-center space-y-4">
+                <div class="prose prose-invert text-sm sm:text-base md:text-lg leading-relaxed mx-auto">
+                    {% include section2.md %}
                 </div>
             </div>
-        </footer>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="section3" class="snap-section bg-[url('/assets/images/Grid_3.png')] bg-cover bg-top-right px-4 sm:px-8 md:px-16 py-12 flex items-center justify-center" style="color: #353535;">
+            <div class="max-w-md sm:max-w-lg md:max-w-2xl w-full text-center space-y-4">
+                <div class="prose text-sm sm:text-base md:text-lg leading-relaxed mx-auto">
+                    {% include section3.md %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+    <footer id="footer" class="bg-black text-gray-400 py-4 px-4 sm:px-6 opacity-0 transition-opacity snappy text-center">
+      <div class="container mx-auto space-y-2">
+        <h3 class="font-bold text-white"
+            style="font-size: clamp(1rem, 2.5vw, 1.3rem);">
+          Get In Touch
+        </h3>
+
+        <p style="font-size: clamp(0.75rem, 2vw, 0.9rem);">
+          Mumbai Maharashtra, India
+        </p>
+
+        <p>
+          <a href="mailto:founder.nishcorp.tech@gmail.com" class="hover:text-white"
+            style="font-size: clamp(0.75rem, 2vw, 0.9rem);">
+            contactmail
+          </a>
+        </p>
+
+        <p>
+          <a href="tel:+91 7738866072" class="hover:text-white"
+            style="font-size: clamp(0.75rem, 2vw, 0.9rem);">
+            Contact Number
+          </a>
+        </p>
+
+        <div style="font-size: clamp(0.7rem, 1.8vw, 0.85rem);">
+          &copy; 2025 NishCorp. All Rights Reserved.
+        </div>
+
+        <div style="font-size: clamp(0.7rem, 1.8vw, 0.85rem);">
+          <a href="https://github.com/IamLegend509/">Website created by Suchit Garad</a>
+        </div>
+      </div>
+    </footer>
+
     </main>
 
-  <div style="height: 20vh;"></div>
-<script type="module" src="/assets/js/main.js"></script>
+    <div style="height: 20vh;"></div>
+    <script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>
