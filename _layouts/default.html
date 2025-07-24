@@ -3,84 +3,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ page.title | default: site.title }}</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/main.css" />
-
-  <!-- Standard favicon -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ page.title | default: site.title }}</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+<!-- Standard favicon -->
 <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
 <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
 <!-- PNG favicons for modern browsers -->
-<link rel="icon" type="image/png" sizes="32x32" href="{{ 'assets/icons/favicon-32x32.png' | relative_url }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ 'assets/icons/favicon-16x16.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/icons/favicon-32x32.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/icons/favicon-16x16.png' | relative_url }}">
 <!-- Apple Touch Icon -->
-<link rel="apple-touch-icon" sizes="180x180" href="{{ 'assets/icons/apple-touch-icon.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/icons/apple-touch-icon.png' | relative_url }}">
 <!-- Android Icons -->
-<link rel="icon" type="image/png" sizes="192x192" href="{{ 'assets/icons/android-chrome-192x192.png' | relative_url }}">
-<link rel="icon" type="image/png" sizes="512x512" href="{{ 'assets/icons/android-chrome-512x512.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/icons/android-chrome-192x192.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="512x512" href="{{ '/assets/icons/android-chrome-512x512.png' | relative_url }}">
 </head>
 <body class="bg-gray-900 font-inter text-white relative">
-
-  {% include header.html %}
-
-  {% if page.spiral_galaxy %}
-    <!-- Spiral Galaxy Canvas Layer -->
-    <div id="spiral-galaxy" class="absolute inset-0 -z-10 overflow-hidden pointer-events-none"></div>
-  {% endif %}
-
-  {% if page.layout_type == 'snap' %}
-    <!-- Snap Scrolling Layout -->
-    <main class="snap-container">
-      {{ content }}
-    </main>
-  {% elsif page.layout_type == 'full_width' %}
-    <!-- Full Width Layout -->
-    <main>
-      {{ content }}
-    </main>
-  {% else %}
-    <!-- Regular Centered Layout (Default) -->
-    <main class="min-h-[90vh] px-6 py-24 flex items-center justify-center text-center">
-      <div class="max-w-3xl w-full">
-        {{ content }}
-      </div>
-    </main>
-  {% endif %}
-
-  <!-- Global Footer -->
-  <footer id="footer" class="bg-black text-gray-400 py-12 px-6 opacity-0 transition-opacity snappy">
-    <div class="container mx-auto text-center">
-      <h3 class="text-2xl font-bold text-white mb-4">Get In Touch</h3>
-        <p class="mb-2">Mumbai Maharashtra, India</p>
-        <p class="mb-2">
-        <a href="mailto:founder.nishcorp.tech@gmail.com" class="hover:text-white">Contact Mail</a>
-        </p>
-        <p class="mb-6">
-        <a href="tel:+91 7738866072" class="hover:text-white">Contact Number</a>
-        </p>
-      <div class="text-sm">
-        &copy; 2025 NishCorp. All Rights Reserved.
-      </div>
-      <div class="text-sm">
-        <a href="https://github.com/IamLegend509/">Website created by Suchit</a>
-      </div>
-    </div>
-  </footer>
-
-  <div style="height: 20vh;"></div>
-
-  <!-- Scripts -->
-  <script type="module" src="/assets/js/main.js"></script>
-  {% if page.spiral_galaxy %}
-    <script src="/assets/js/spiral-galaxy.js"></script>
-  {% endif %}
-
-
+ {% include header.html %}
+ {% if page.spiral_galaxy %}
+<!-- Spiral Galaxy Canvas Layer -->
+<div id="spiral-galaxy" class="absolute inset-0 -z-10 overflow-hidden pointer-events-none"></div>
+ {% endif %}
+ {% if page.layout_type == 'snap' %}
+<!-- Snap Scrolling Layout -->
+<main class="snap-container">
+ {{ content }}
+</main>
+ {% elsif page.layout_type == 'full_width' %}
+<!-- Full Width Layout -->
+<main>
+ {{ content }}
+</main>
+ {% else %}
+<!-- Regular Centered Layout (Default) -->
+<main class="min-h-[90vh] px-6 py-24 flex items-center justify-center text-center">
+<div class="max-w-3xl w-full">
+ {{ content }}
+</div>
+</main>
+ {% endif %}
+<!-- Global Footer -->
+<footer id="footer" class="bg-black text-gray-400 py-12 px-6 opacity-0 transition-opacity snappy">
+<div class="container mx-auto text-center">
+<h3 class="text-2xl font-bold text-white mb-4">Get In Touch</h3>
+<p class="mb-2">Mumbai Maharashtra, India</p>
+<p class="mb-2">
+<a href="mailto:founder.nishcorp.tech@gmail.com" class="hover:text-white">Contact Mail</a>
+</p>
+<p class="mb-6">
+<a href="tel:+91 7738866072" class="hover:text-white">Contact Number</a>
+</p>
+<div class="text-sm">
+&copy; 2025 NishCorp. All Rights Reserved.
+</div>
+<div class="text-sm">
+<a href="https://github.com/IamLegend509/">Website created by Suchit</a>
+</div>
+</div>
+</footer>
+<div style="height: 20vh;"></div>
+<!-- Scripts -->
+<script type="module" src="/assets/js/main.js"></script>
+ {% if page.spiral_galaxy %}
+<script src="/assets/js/spiral-galaxy.js"></script>
+ {% endif %}
 </body>
 </html>
