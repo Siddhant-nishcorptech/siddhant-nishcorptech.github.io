@@ -1,42 +1,79 @@
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-  <nav class="glass-nav container mx-auto px-6 py-4 rounded-b-xl">
-    <div class="flex items-center justify-between text-white">
-      <!-- Logo -->
-      <div class="font-bold text-xl">
-        <a href="/" class="flex items-center space-x-2">
-          <img src="/assets/images/NishCorpLogo.png" alt="NishCorp Logo" class="h-10 w-auto">
-          <span class="sr-only">NishCorpLogo</span>
-        </a>
-      </div>
-
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-
-      <!-- Desktop Nav -->
-      <div id="nav-links" class="hidden md:flex items-center space-x-8 font-medium">
-        <a href="/" class="hover:text-gray-300">Home</a>
-        <a href="/features/" class="hover:text-gray-300">Features</a>
-        <a href="/about/" class="hover:text-gray-300">About</a>
-        <a href="/contacts/" class="hover:text-gray-300">Contact Us</a>
-        <button onclick="scrollToFooter()" class="bg-white text-black font-bold py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors">
-          Get in Touch
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Dropdown -->
-    <div id="mobile-nav-links" class="md:hidden hidden mt-4 space-y-2">
-      <a href="/" class="block text-white hover:text-gray-300 py-2 glitch" data-text="Home">Home</a>
-      <a href="/features/" class="block text-white hover:text-gray-300 py-2 glitch" data-text="Features">Features</a>
-      <a href="/about/" class="block text-white hover:text-gray-300 py-2 glitch" data-text="About">About</a>
-      <a href="/contacts/" class="block text-white hover:text-gray-300 py-2 glitch" data-text="Contact Us">Contact Us</a>
-      <button onclick="scrollToFooter()" class="block w-full text-left bg-white text-black font-bold py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors">
-        Get in Touch
-      </button>
-    </div>
-  </nav>
+    <nav class="glass-nav container mx-auto px-6 py-4 rounded-b-xl">
+        <div class="flex items-center justify-between text-white">
+            <!-- Logo -->
+            <div class="font-bold text-xl">
+                <a href="/" class="flex items-center space-x-2">
+                    <img src="/assets/images/NishCorpLogo.png" alt="NishCorp Logo" class="h-10 w-auto">
+                    <span class="sr-only">NishCorpLogo</span>
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            
+            <!-- Desktop Nav -->
+            <div id="nav-links" class="hidden md:flex items-center space-x-8 font-medium">
+                <a href="/" class="hover:text-gray-300">Home</a>
+                <a href="/features/" class="hover:text-gray-300">Features</a>
+                <a href="/about/" class="hover:text-gray-300">About</a>
+                <a href="/contacts/" class="hover:text-gray-300">Contact Us</a>
+                <button onclick="scrollToFooter()" class="bg-white text-black font-bold py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors">
+                    Get in Touch
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Dropdown -->
+        <div id="mobile-nav-links" class="md:hidden hidden mt-4 space-y-2">
+            <a href="/" class="block text-white hover:text-gray-300 py-2 glitch" data-text="Home">Home</a>
+            <a href="/features/" class="block text-white hover:text-gray-300 py-2 glitch" data-text="Features">Features</a>
+            <a href="/about/" class="block text-white hover:text-gray-300 py-2 glitch" data-text="About">About</a>
+            <a href="/contacts/" class="block text-white hover:text-gray-300 py-2 glitch" data-text="Contact Us">Contact Us</a>
+            <button onclick="scrollToFooter()" class="block w-full text-left bg-white text-black font-bold py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors">
+                Get in Touch
+            </button>
+        </div>
+    </nav>
 </header>
+
+<script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        const mobileNav = document.getElementById('mobile-nav-links');
+        mobileNav.classList.toggle('hidden');
+    });
+
+    // Firefox-compatible scroll to footer function
+    function scrollToFooter() {
+        const footer = document.getElementById('footer');
+        
+        if (footer) {
+            // Use scrollIntoView which is more reliable across browsers
+            footer.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Adjust for fixed header after scroll
+            setTimeout(() => {
+                const header = document.querySelector('header');
+                const headerHeight = header ? header.offsetHeight : 0;
+                window.scrollBy({
+                    top: -(headerHeight + 20),
+                    behavior: 'smooth'
+                });
+            }, 100);
+        } else {
+            console.warn('Footer element not found');
+            // Fallback: redirect to home page with footer hash
+            if (window.location.pathname !== '/') {
+                window.location.href = '/#footer';
+            }
+        }
+    }
+</script>
